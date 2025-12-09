@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-step Pricing Calculator</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* vertical spacing between items */
+        }
+
+        h2 {
+            text-align: center;
+            color: #4a90e2;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        button {
+            padding: 15px;
+            background: linear-gradient(90deg, #4a90e2, #357ABD);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #357ABD, #2c5aa0);
+        }
+
+        #finalPrice {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            padding: 12px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #4a90e2, #357ABD);
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            h2 {
+                font-size: 22px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            #finalPrice {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>eCommerce Pricing Calculator</h2>
+
+        <div>
+            <label for="basePrice">Base Price:</label>
+            <input type="number" id="basePrice" placeholder="Enter base price">
+        </div>
+
+        <div>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" placeholder="Enter quantity (5% off if quantity > 10)">
+        </div>
+
+        <div>
+            <label for="membership">Membership:</label>
+            <select id="membership">
+                <option value="regular">Regular</option>
+                <option value="premium">Premium (7% off for premium members)</option>
+            </select>
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="coupon">
+            <label for="coupon">Apply Coupon (10% off)</label>
+        </div>
+
+        <button onclick="calculatePrice()">Calculate Price</button>
+
+        <h3 id="finalPrice">Final Price :</h3>
+    </div>
+
+    <script>
+        function calculatePrice() {
+            let input1 = parseFloat(document.getElementById("basePrice").value)
+            let input2 = parseInt(document.getElementById("quantity").value)
+            let options = document.getElementById("membership").value
+            let input3 = document.getElementById("coupon").checked
+
+            if (!input1 || !input2) {
+                alert("Please enter valid base price and quantity");
+                return;
+            }
+
+            if (input1 <= 0 || input2 <= 0) {
+                alert("Base price and quantity must be greater than 0");
+                return;
+            }
+
+            let total = input1 * input2;
+
+            if (input2 > 10) {
+                total = total * 0.95
+            }
+
+            if (options === "premium") {
+                total = total * 0.93
+            }
+
+            if (input3) {
+                total = total * 0.90
+            }
+
+            document.getElementById("finalPrice").innerHTML = "Final Price : " + total.toFixed(2)
+        }
+    </script>
+</body>
+
+</html>

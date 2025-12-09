@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even/Odd</title>
+</head>
+<body>
+    <input id="inputNum" type="text">
+    <button onclick="btn()" >Click Me...!</button>
+    <script>
+        function btn() {
+            let num = Number(document.getElementById("inputNum").value);
+            if (num % 2 === 0) {
+                alert("Number is even");
+            } else {
+                alert("Your written Number is odd")
+            }
+        }
+    </script>
+</body>
+</html>

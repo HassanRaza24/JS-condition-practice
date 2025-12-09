@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="grade" type="text" placeholder="enter your grade">
+    <button onclick="btn()" >click</button>
+    <script>
+        let marks = document.getElementById("grade")
+        function btn(){
+            let grading = marks.value
+            if (grading === "A") {
+                alert(" you got 1 position")
+            } else if (grading === "B") {
+                alert("you got second position")
+            } else if (grading === "C") {
+                alert("you got third position")
+            }else{
+                alert("you are pass")
+            }
+        }
+    </script>
+</body>
+</html>

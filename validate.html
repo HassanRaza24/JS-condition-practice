@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name" type="text" placeholder="enter your name">
+    <input id="password" type="password" placeholder="enter your password">
+    <button onclick="btn()" >submit</button>
+    <script>
+        let a = document.getElementById("name")
+        let b = document.getElementById("password")
+        function btn(){
+            let name = a.value;
+            let password = b.value;
+            if ( name === ""){
+                alert("enter your name")
+            }else if (password.length < "8" ) {
+                alert("password should be greater than 8 digit")
+            }else{
+                alert("form is submitted")
+            }
+        }
+    </script>
+</body>
+</html>

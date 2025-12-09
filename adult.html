@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text">
+    <button onclick="btn()" >click me</button>
+    <script>
+        let adult = document.getElementById("input")
+        function btn() {
+            let age = Number(adult.value);
+            if (age < 18) {
+                alert('you are child')
+            } else {
+                alert("you are adult")
+            }
+        }
+    </script>
+</body>
+</html>

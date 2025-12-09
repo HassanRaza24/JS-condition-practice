@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text" placeholder="write your salary into 30k 40k like this">
+    <button onclick="btn()">click</button>
+    <script>
+        let salary = document.getElementById("input")
+        function btn(){
+            let a = Number(salary.value);
+
+           
+            if (a <= "50") {
+                alert("your income is low")
+            } else if ((a > "50") && (a <= "100")) {
+                alert("your income is mid")
+            }else{
+                alert("your income is high")
+            }
+        }
+        //  let a = Number(prompt(" enter any number betwen 1 and 20"))
+    </script>
+</body>
+</html>

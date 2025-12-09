@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="enter" type="text" placeholder="write number b/w 1 and 20">
+    <button onclick="btn()">click me</button>
+    <script>
+        let a = document.getElementById("enter");
+        function btn() {
+            let num = Number(a.value);
+            num<=10 ? alert("number is less than or equal to 10") : alert("number is greater than or equal to 20")
+        }
+    </script>
+</body>
+</html>

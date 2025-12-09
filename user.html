@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input1" type="text" placeholder="Enter your type: admin, customer, guest, premium user">
+    <button onclick="btn() ">submit</button>
+    <script>
+        let a = document.getElementById("input1")
+        function btn(){
+            let type = a.value;
+            if (type == "admin") {
+                alert("Welcome Admin!")
+            } else if (type == "customer") {
+                alert("Welcome Customer!")
+            } else if (type == "premium user") {
+                alert("Welcome To Prmium User Interface")
+            } else {
+                alert("You Have Limited Access!")
+            }
+        }
+    </script>
+</body>
+</html>
